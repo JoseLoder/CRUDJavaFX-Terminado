@@ -8,7 +8,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import vista.controladores.ControladorEscenarioPrincipal;
 
-
+//SDK de JavaFX
+//https://drive.google.com/file/d/1wVZT3pe-Ajp58jJgLPoLKXTy810iMxr1/view?usp=sharing
 public class Vista extends Application {
 
     //Declaramos de variables

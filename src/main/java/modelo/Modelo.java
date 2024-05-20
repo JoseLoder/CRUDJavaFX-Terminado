@@ -1,6 +1,7 @@
 package modelo;
 
 import javax.naming.OperationNotSupportedException;
+import java.util.ArrayList;
 
 public class Modelo {
 
@@ -22,22 +23,26 @@ public class Modelo {
     //CRUD
 
     //Create
-    public void aniadir(Persona persona) throws OperationNotSupportedException {
+    public void insertarPersona(String nombre, String apellidos, String dni) throws OperationNotSupportedException {
+        Persona persona = new Persona(nombre,apellidos,dni);
         personas.aniadirPersona(persona);
     }
 
     //Read
-    public Personas getPersonas() throws OperationNotSupportedException {
-        return personas;
+    public ArrayList<Persona> getPersonas() throws OperationNotSupportedException {
+        return personas.getListaPersonas();
     }
 
     //Update
-    public void modificar(Persona persona) throws OperationNotSupportedException {
-        personas.modificarPersona(persona);
+    public void modificarPersona(Persona persona, String nombre, String apellidos) throws OperationNotSupportedException {
+        personas.modificarPersona(persona,nombre,apellidos);
     }
 
     //Delete
     public void eliminar(Persona persona) throws OperationNotSupportedException {
         personas.eliminarPersona(persona);
     }
+
+
+
 }

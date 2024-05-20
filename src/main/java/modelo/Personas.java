@@ -28,18 +28,19 @@ public class Personas {
     }
 
     //Update
-    public void modificarPersona(Persona persona) {
+    public void modificarPersona(Persona persona, String nombre, String apellido) {
         if (persona == null) {
             throw new NullPointerException("La persona no puede ser nula");
         }
+
         for (Persona p : listaPersonas) {
-            if (p.getDni().equals(persona.getDni())) {
-                p.setNombre(persona.getNombre());
-                p.setApellido(persona.getApellido());
-                p.setDni(persona.getDni());
+            if (p.equals(persona)) {
+                p.setNombre(nombre);
+                p.setApellido(apellido);
             }
         }
     }
+
 
     //Delete
     public void eliminarPersona(Persona persona) {

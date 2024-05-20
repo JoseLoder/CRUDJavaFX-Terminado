@@ -2,6 +2,7 @@ package vista;
 
 import controlador.Controlador;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -12,16 +13,28 @@ import vista.controladores.ControladorEscenarioPrincipal;
 //https://drive.google.com/file/d/1wVZT3pe-Ajp58jJgLPoLKXTy810iMxr1/view?usp=sharing
 public class Vista extends Application {
 
-    //Declaramos de variables
-    private Controlador controladorMVC;
+    protected Controlador controladorMVC;
 
-    //Constructor
-    public Vista() {
+    private static Vista instancia=null;
+
+    public Vista()
+    {
+        if (instancia != null)
+        {
+            controladorMVC = instancia.controladorMVC;
+        }
+        else
+        {
+            instancia = this;
+        }
     }
 
     //Setter para el controlador
     public void setControlador(Controlador controlador) {
         this.controladorMVC = controlador;
+        if (controladorMVC != null){
+            System.out.println("Controlador seteado en la vista");
+        }
     }
 
     //Método para comenzar
@@ -34,18 +47,18 @@ public class Vista extends Application {
 
         //Cargamos el archivo FXML y CREAMOS la escena
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/EscenarioPrincipal.fxml"));
+
+        //Creamos una nueva instancia de ControladorEscenarioPrincipal y le pasamos el controlador
+        ControladorEscenarioPrincipal controladorJFX = new ControladorEscenarioPrincipal(controladorMVC);
+
+        //Configuramos el controlador del FXMLLoader
+        loader.setController(controladorJFX);
         AnchorPane root = loader.load();
 
-//        //YA CREADA le pasamos el controlador y llenamos la tabla
-//        ControladorEscenarioPrincipal controlador = loader.getController();
-//        controlador.setControladorMVC(controladorMVC);
-//        controlador.setListaPersonas(controladorMVC.getListaPersonas());
-
+        //Mostramos la escena
         stage.setScene(new Scene(root));
-        stage.setTitle("Hola Mundo");
+        stage.setTitle("Administración de personas");
         stage.show();
-
-
 
     }
 }

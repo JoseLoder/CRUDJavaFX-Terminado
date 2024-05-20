@@ -16,7 +16,7 @@ public class ControladorEscenarioSecundario {
 
     // Constructor
     public ControladorEscenarioSecundario(Controlador controlador,Persona persona) {
-        this.controladorMVC = controlador;
+        setControladorMVC(controlador);
         this.persona = persona;
 
     }

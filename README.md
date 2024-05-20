@@ -63,12 +63,11 @@ Ahora lo que debemos de hacer es que el controlador de nuestro MVC (vamos a llam
   
 ¿Como vamos a lograr eso? Fácil, setteándolos.  
   
-Declaramos una variable en el controladorJFX, este va a ser nuestro controladorMVC. Seguídamente creamos el método público setControladorMVC para poder llamarlo desde la vista y pasarle el controladorMVC QUE TIENE ELLA.
-
-![img_7.png](img_7.png)
+Declaramos una variable en el controladorJFX, este va a ser nuestro controladorMVC. Seguídamente creamos el método público setControladorMVC para poder llamarlo desde el constructor en la vista y pasarle el controladorMVC QUE TIENE ELLA.
+![img_13.png](img_13.png)
 
 Ahora en el momento de nosotros llamar a nuestro archivo FXML en la vista le pasamos el controladorMVC al controladorJFX.
-![img_8.png](img_8.png)
+![img_14.png](img_14.png)
 
 
 ### Create
@@ -95,3 +94,50 @@ Por último vamos a desarrollar el método, para ello debemos de obtener los dat
 ### Read
 
 #### En el archivo .fxml
+Para poder mostrar la lista de las personas tenemos que asignar tanto la tabla como las columnas de la tabla a un id.
+![img_15.png](img_15.png)
+![img_17.png](img_17.png)
+
+#### En el controladorJFX
+Vamos a especificar las zonas para determinar que esta es la parte de la lectura de la persona y pegamos lo copiado del archivo FXML.
+![img_18.png](img_18.png)
+Para que la tabla se llene con los datos debemos de darle los tipos tal y como se indican en la imagen. Esto hace referencia al tipo de dato que va a contener la tabla.  
+  
+Como se puede apreciar no tenemos ningún método que nos muestre las personas en la tabla, esto es porque vamos a utilizar un método reservado de JavaFX que se llama `initialize`.  
+Este método se ejecuta cuando se carga la vista, por lo que es el lugar perfecto para cargar los datos en la tabla.
+![img_19.png](img_19.png)
+
+### Update
+
+#### En el archivo .fxml
+Para actualizar una persona vamos a necesitar poder seleccionarla y lanzar un segundo escenario pasándole los datos de la persona seleccionada.  
+Para ello vamos solo vamos a necesitar el método del botón modificar.
+![img_20.png](img_20.png)
+
+#### En el controladorJFX
+Aquí es donde vamos a tener que hacer un poco más de trabajo.
+##### En el controladorEscenarioPrincipal
+![img_21.png](img_21.png)
+
+##### En el controladorEscenarioSecundario
+Creamos el constructor de la misma manera que en el controladorEscenarioPrincipal con el añadido de que ahora le pasamos a una persona.  
+![img_25.png](img_25.png)
+A continuación vamos a irnos a su respectivo FXML y vamos a crear y añadir los id´s de los campos que vamos a necesitar para modificar la persona.  
+  ![img_26.png](img_26.png)
+Debemos de tener en cuenta que el dni no se puede modificar, pero igualmente lo mostraremos deshabilitado, además, deberemos de darle una id al botón de modificar para poder salir de la ventana al pulsarlo.
+![img_28.png](img_28.png)
+![img_29.png](img_29.png)
+
+En este punto ya podemos cargar los datos de la persona en los campos correspondientes. Esto lo haremos gracias al método `initialize` que se ejecuta cuando se carga el archivo FXML.
+![img_30.png](img_30.png)
+
+Por último, vamos a desarrollar el método que se encargará de modificar la persona.
+![img_31.png](img_31.png)
+### Delete
+
+#### En el archivo .fxml
+Para eliminar es sencillo establecemos el método que se encargará de hacerlo en el botón eliminar como en el apartado de Update.  
+![img_22.png](img_22.png)
+
+#### En el controladorJFX
+![img_24.png](img_24.png)

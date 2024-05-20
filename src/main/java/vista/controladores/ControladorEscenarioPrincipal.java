@@ -25,7 +25,7 @@ public class ControladorEscenarioPrincipal {
 
     // Constructor
     public ControladorEscenarioPrincipal(Controlador controlador) {
-        this.controladorMVC = controlador;
+        setControladorMVC(controlador);
 
     }
     // Setter para el controlador que nos va a pasar la vista
@@ -122,13 +122,15 @@ public class ControladorEscenarioPrincipal {
     if(persona == null){
         return;
     }
-
+    //Cargamos la vista de modificar persona
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/EscenarioSecundario.fxml"));
     ControladorEscenarioSecundario controladorModificar = new ControladorEscenarioSecundario(controladorMVC, persona);
     try{
+        //Configuramos el controlador del FXMLLoader
         loader.setController(controladorModificar);
         AnchorPane root = loader.load();
 
+        //Mostramos la vista en una nueva ventana
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);

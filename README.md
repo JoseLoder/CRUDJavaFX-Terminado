@@ -26,7 +26,7 @@
 ## Configuración inicial
 
 1. Nos descargamos el SDK de JavaFX.  
-   Os lo facilito en este Link https://drive.google.com/file/d/1wVZT3pe-Ajp58jJgLPoLKXTy810iMxr1/view?usp=sharing  
+   Os lo facilito en este Link [SDK JavaFX](https://drive.google.com/file/d/1B90a9ugPq94ewVH4myMVtRdvt34vaVSs/view?usp=sharing) 
 2. Una vez descargado lo descomprimimos en la carpeta donde hemos clonado el proyecto.
 
 3. A continuación, nos dirigimos a la carpeta lib del SDK y copiáis su ruta y modificáis el siguiente script con ella.  
